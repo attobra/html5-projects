@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <!--Specify the character encoding for the HTML document-->
+  <meta charset="utf-8"> 
+<!--Responsive Web Design Viewport Meta tag-->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+<!-- jQuery library -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+<!-- Latest compiled JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+ 
+  <!-- JQuery commands always goes in the head-->
+  <script >
+    $(document).ready(function() {
+     
+      $("#myform").submit(function(e){
+         e.preventDefault();
+        
+      ln=$('#ln').val();
+       if(ln==""){
+        $('#ln_error').show();
+         $('#ln_error').html('Please enter last name');
+         $('#ln_error').css('color', 'red');
+         $('#ln').css('border', '2px solid red');
+       }
+      
+        fn=$('#fn').val();
+       if(fn==""){
+        $('#fn_error').show();
+         $('#fn_error').html('Please enter first name');
+         $('#fn_error').css('color', 'red');
+         $('#fn').css('border', '2px solid red');
+       }
+        
+        
+      email=$('#email').val();
+       if(email==""){
+        $('#email_error').show();
+         $('#email_error').html('Please enter email');
+         $('#email_error').css('color', 'red');
+         $('#email').css('border', '2px solid red');
+       }
+        /*
+        password=$('#pwd').val();
+       if(password==""){
+        $('#password_error').show();
+         $('#password_error').html('Please enter a valid password');
+         $('#password_error').css('color', 'red');
+         $('#pwd').css('border', '2px solid red');
+       }
+       */
+        
+        password=$('#pwd').val();
+        if(password<="5"){
+        $('#pwd_error').show();
+         $('#pwd_error').html('Your password is less than 5 characters');
+         $('#pwd_error').css('color', 'red');
+         $('#pwd').css('border', '2px solid red');
+       }
+      }); 
+    });           
+  </script>
+  </head>
+  
+  <body>
+    <h1 style="text-align:center;">MY FIRST FORM
+      
+    </h1>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          
+          <form id="myform" class="form-horizontal" action="/http://sfacs.us/">
+  <div class="form-group">
+    <label class="control-label col-sm-2" for="email">First Name:</label>
+    <div class="col-sm-10">
+      <input type="fn" class="form-control" id="fn" placeholder="Enter First Name" required>
+      <span><p id="fn_error"> </span></p>
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="control-label col-sm-2" for="email">Last Name:</label>
+    <div class="col-sm-10">
+      <input type="ln" class="form-control" id="ln" placeholder="Enter Last Name">
+      <span><p id="ln_error"> Please enter correct last name</span></p>
+
+      </p>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label class="control-label col-sm-2" for="email">Email:</label>
+    <div class="col-sm-10">
+      <input type="email" class="form-control" id="email" placeholder="Enter email">
+      <span><p id="email_error"> </span></p>
+     
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="control-label col-sm-2" for="email">Password:</label>
+    <div class="col-sm-10">
+      <input type="password" class="form-control" id="pwd" placeholder="Enter password">
+     <span><p id="pwd_error"> </span></p>
+      
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <div class="checkbox">
+        <label><input id="remember" type="checkbox"> Remember me</label>
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <button type="submit" class="btn btn-default">Submit</button>
+    </div>
+  </div>
+
+  </form>
+
+          
+        </div>
+      </div>
+    </div>
+    
+    
+  </body>
+</html>

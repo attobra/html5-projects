@@ -1,0 +1,27 @@
+body {
+    background-color: powderblue;
+    background-image: url("https://www.metoffice.gov.uk/binaries/content/gallery/metofficegovuk/hero-images/weather/cloud/stratocumulus-from-above-1.jpg/stratocumulus-from-above-1.jpg/metofficegovuk%3AheroXXLarge");
+    }
+    h1 {
+  color: blue;
+  font-family: verdana;
+  font-size: 300%;
+}
+p  {
+  color: red;
+  font-family: courier;
+  font-size: 160%;
+}
+     #p01 {
+  color: blue;
+     }
+     
+  .error {
+    color: red;
+  }
+
+img {
+  border: 2px solid red;
+  padding: 50px;
+  background-color: green;
+}

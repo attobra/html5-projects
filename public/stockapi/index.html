@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  
+  <script>
+$(document).ready(function() {
+
+  $('#search').click(function(e) {
+    e.preventDefault();
+    var searchAPI = "http://dev.markitondemand.com/MODApis/Api/v2/Quote/json?symbol=" + $('#stock').val();
+
+    $.getJSON (searchAPI).done(function(data) {
+
+      $('#symbol_t').html(data.Symbol)
+      $('#name').html(data.Name)
+      $('#lastprice').html(data.LastPrice)
+      $('#change').html(data.Change)
+      $('#percent').html(data.ChangePercent)
+    
+      console.log(data.Symbol)
+      
+      /*fn=$('#fn').val();*/
+      ch=$('#change').val();
+      if(ch<"0"){   
+         $('#change').css('color', 'red');
+       }
+
+      
+    });
+  });
+});           
+      
+  </script>
+<style>
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+th, td {
+    padding: 5px;
+    text-align: left;
+}
+    </style>
+  
+  
+  </head>
+  
+  <body>
+    
+    <h2>Stock App</h2>
+
+    
+    <div class=row>
+          <form id="myform" class="form-horizontal" action="">
+         <div class="form-group">
+              <label class="control-label col-sm-2" for="email">Symbol:</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="stock" placeholder="Enter Stock Name" required>
+               <span><p id="stock_error"> </span></p>
+              <button id="search" class="btn btn-danger">Search</button>
+            </div>
+        </div>
+     
+</form>
+    </div>
+    
+   
+<table style="width:80%">
+  <tr>
+    <th>Measure</th>
+    <th>Value</th>
+  </tr>
+  <tr>
+    <td>Name</td>
+    <td id="name">$100</td>
+  </tr>
+  <tr>
+    <td>Symbol</td>
+    <td id="symbol_t">$100</td>
+  </tr>
+  <tr>
+    <td>LastPrice</td>
+    <td id="lastprice">$100</td>
+  </tr>
+  <tr>
+    <td>Change</td>
+    <td id="change">1</td>
+  </tr>
+  <tr>
+    <td>ChangePercent</td>
+    <td id="percent">0.10</td>
+  </tr>
+</table>
+    
+</body>
+</html>
+
